@@ -1,0 +1,153 @@
+.Header__main {
+  width: 100vw;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 4px 6px 7px rgba(0, 0, 0, 0.6);
+}
+
+/* Left */
+.Header__main > .Header__left {
+  flex: 1;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-left: 20px;
+}
+
+.Header__main > .Header__left > .Header__hamburger {
+  z-index: 100;
+  width: 33px;
+  height: 25px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.Header__main > .Header__left > .Header__hamburger > span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: white;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.Header__main > .Header__left > .Header__hamburger > span:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.Header__main > .Header__left > .Header__hamburger > span:nth-child(2) {
+  top: 10px;
+  transform-origin: left center;
+}
+.Header__main > .Header__left > .Header__hamburger > span:nth-child(3) {
+  top: 20px;
+  transform-origin: left center;
+}
+
+.Header__main > .Header__left > .open > span:nth-child(1) {
+  transform: rotate(40deg);
+}
+
+.Header__main > .Header__left > .open > span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.Header__main > .Header__left > .open > span:nth-child(3) {
+  transform: rotate(-40deg);
+}
+
+.Header__main > .Header__left > .Header__navList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  list-style: none;
+  margin-left: 30px;
+}
+.Header__main > .Header__left > .Header__navList > li {
+  margin: 0px 10px;
+  font-size: 17px;
+  font-weight: 300;
+  text-decoration: none;
+  color: white;
+}
+.Header__main > .Header__left > .Header__navList > li > a {
+  font-size: 17px;
+  font-weight: 300;
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s ease;
+}
+.Header__main > .Header__left > .Header__navList > li > a:hover {
+  color: rgb(255, 0, 225);
+}
+
+.Header__main > .Header__left > a {
+  text-decoration: none;
+  margin-left: 30px;
+}
+.Header__main > .Header__left > a > div img {
+  width: 37px;
+}
+.Header__main > .Header__left > a > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.Header__main > .Header__left > a > div > p {
+  color: white;
+  font-weight: 500;
+  font-size: 27px;
+  margin-left: 5px;
+}
+.Header__main > .Header__left > a > p {
+  color: white;
+  letter-spacing: 1.15px;
+  font-weight: 400;
+  font-size: 10px;
+  margin-left: 5px;
+}
+/* --------------------------- */
+
+/* Right */
+.Header__main > .Header__right {
+  flex: 1;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.Header__main > .Header__right > p {
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+}
+/* --------------------------- */
+
+.Header__main > .Header__line {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  height: 5px;
+  object-fit: cover;
+}

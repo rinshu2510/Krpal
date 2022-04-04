@@ -1,0 +1,101 @@
+.Post__main {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 90px;
+}
+
+.Post__main > .Post__topDiv {
+  width: 100%;
+  padding: 0 15px;
+  box-shadow: 4px 6px 10px black, -1px -3px 6px rgba(97, 102, 107, 0.5);
+  background-color: #1a1a1c;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.Post__main > .Post__topDiv > .Post__id {
+  width: 100%;
+  height: 25px;
+}
+.Post__main > .Post__topDiv > .Post__id > p {
+  display: inline;
+  font-size: 11px;
+
+  color: #ffffff;
+
+  /* background: linear-gradient(to left, #e17f55, #d85d78, #4883ac, #50aa98);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;*/
+}
+
+.Post__main > .Post__topDiv > .Post__postText {
+  font-weight: 500;
+  padding: 15px 35px;
+  padding-top: 10px;
+}
+
+.Post__main > .Post__bottomDiv {
+  box-sizing: border-box;
+  width: 90%;
+  padding: 0px 30px;
+  padding-top: 10px;
+  position: absolute;
+  top: 93%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0px 0px 20px 20px;
+
+  color: white;
+  border: 2px double transparent;
+  background-image: linear-gradient(rgb(27, 27, 27, 0.8), rgb(27, 27, 27, 0.8)),
+    radial-gradient(circle at left top, rgb(1, 110, 218), rgb(217, 0, 192));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.Post__main > .Post__bottomDiv > .Post__bottomItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.Post__main > .Post__bottomDiv > .Post__bottomItem > .Post__LikeDislike {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.Post__main > .Post__bottomDiv > .Post__bottomItem > .Post__LikeDislike > p {
+  font-size: 20px;
+  margin-right: 5px;
+  font-weight: 600;
+}
+.Post__main > .Post__bottomDiv > .Post__bottomItem > .Post__LikeDislike > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Post__main
+  > .Post__bottomDiv
+  > .Post__bottomItem
+  > .Post__LikeDislike
+  > div
+  > p {
+  font-size: 10px;
+}
+
+.Post__main > .Post__bottomDiv > .Post__bottomItem > .Post__Option {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

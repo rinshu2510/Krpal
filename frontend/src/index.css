@@ -1,0 +1,40 @@
+
+*,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'dosis';
+  /* font-family: Poppins; */
+  /* font-family: NoirdenReg; */
+}
+body {
+  background-color: rgb(24, 24, 31);
+}
+body::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#2196f3, #e91e63);
+
+  clip-path: circle(20% at 90% 82%);
+}
+body::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#2196f3, #e91e63);
+  clip-path: circle(23% at 10% 10%);
+}
+
+.secular {
+  font-family: "Secular One";
+}
