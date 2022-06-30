@@ -92,13 +92,31 @@ exports.logout = catchAsyncErrors((req, res) => {
     })
 });
 
-exports.getUserDetails = catchAsyncErrors((req, res) => {
+exports.userDetails = catchAsyncErrors(async (req, res) => {
 
-    const user = req.user;
+    const { username, name, email } = req.body;
+    const id = uuidv4().replace(/-/g,"");
+    const avatarPath = "this is sampe data";
+ 
+    const d = new Date();
+    const createdAt = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
-    res.status(200).json({
+    const updatesAt = createdAt;
+
+
+
+    const metadata = await pool.query(
+        `INSERT INTO metadata (id, username , name ,email ,
+            avatar, createdat, updatesat )
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            RETURNING *`,
+        [id, username, name, email, avatarPath, createdAt, updatesAt]
+    )
+    
+    console.log("hello2");
+    res.status(201).json({
         success: true,
-        user,
+        userData: metadata.rows[0]
     })
 
 })

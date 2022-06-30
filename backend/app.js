@@ -27,8 +27,10 @@ app.use(passport.session());
 
 //Route imports
 const user = require("./routes/userRoutes");
+const post = require("./routes/postRoute");
 
 app.use('/api/v1', user);
+app.use('/api/v1', post);
 
 app.use(errorMiddleware);
 

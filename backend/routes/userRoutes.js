@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { registerUser, loginUser, logout } = require("../controllers/userController");
+const { registerUser, loginUser, logout, userDetails } = require("../controllers/userController");
 const { checkNotAuthenticated, checkAuthenticated } = require("../middleware/auth");
 
 
@@ -19,6 +19,6 @@ router.get("/users/dashboard", checkNotAuthenticated, (req, res) => {
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/logout", logout);
-router.get("/me", checkAuthenticated,);
+router.post("/userdetail",checkNotAuthenticated,userDetails);
 
 module.exports = router;
