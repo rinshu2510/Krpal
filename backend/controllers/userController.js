@@ -92,31 +92,48 @@ exports.logout = catchAsyncErrors((req, res) => {
     })
 });
 
+
+// update user detail
 exports.userDetails = catchAsyncErrors(async (req, res) => {
 
     const { username, name, email } = req.body;
-    const id = uuidv4().replace(/-/g,"");
+    const id = uuidv4().replace(/-/g, "");
     const avatarPath = "this is sampe data";
- 
+
     const d = new Date();
     const createdAt = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 
-    const updatesAt = createdAt;
 
 
+    let user = await pool.query(
+        `SELECT * FROM metadata WHERE email = $1`,
+        [email]);
 
-    const metadata = await pool.query(
-        `INSERT INTO metadata (id, username , name ,email ,
-            avatar, createdat, updatesat )
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+
+    if (user.rows.length !== 0) {
+
+        user = await pool.query(
+            `UPDATE metadata SET username = $1,
+            name = $2, avatar = $3, updatesat = $4 
             RETURNING *`,
-        [id, username, name, email, avatarPath, createdAt, updatesAt]
-    )
-    
-    console.log("hello2");
+            [username, name, avatarPath, createdAt]
+        )
+    }
+
+    else {
+        const updatesAt = createdAt;
+        user = await pool.query(
+            `INSERT INTO metadata (id, username , name ,email ,
+                avatar, createdat, updatesat )
+                VALUES ($1, $2, $3, $4, $5, $6, $7)
+                RETURNING *`,
+            [id, username, name, email, avatarPath, createdAt, updatesAt]
+        )
+    }
+
     res.status(201).json({
         success: true,
-        userData: metadata.rows[0]
+        userData: user.rows[0]
     })
 
 })
