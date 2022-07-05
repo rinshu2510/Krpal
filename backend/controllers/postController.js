@@ -51,3 +51,36 @@ exports.allPost = catchAsyncErrors(async (req, res, next) => {
     })
 
 })
+
+exports.images = catchAsyncErrors(async (req, res, next) => {
+
+    let sampleFile;
+    let uploadPath;
+
+    if (!req.files || Object.keys(req.files).length === 0) {
+
+        return next(new ErrorHandler("No files were uploaded.", 400));
+    }
+
+    // console.log('req.files >>>', req.files); 
+
+    sampleFile = req.files.file;
+
+    uploadPath = __dirname + '/uploads/' + sampleFile.name;
+
+    // console.log(uploadPath)
+
+    sampleFile.mv(uploadPath, function (err) {
+        if (err) {
+
+            return next(new ErrorHandler(err, 500));
+
+        }
+    });
+
+    res.status(201).json({
+
+        success: true,
+        message: 'File uploaded to ' + uploadPath
+    })
+})

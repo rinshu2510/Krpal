@@ -1,4 +1,5 @@
 const express = require("express");
+const fileUpload = require("express-fileupload");
 const app = express();
 const passport = require("passport");
 const session = require("express-session");
@@ -7,7 +8,9 @@ const dotenv = require("dotenv");
 const errorMiddleware = require("./middleware/error");
 
 dotenv.config({ path: "backend/config/config.env" })
-
+app.use(fileUpload({
+    createParentPath:true 
+}));
 
 initializePassport(passport);
 app.use(express.json());
